@@ -146,6 +146,7 @@ struct SettingsView: View {
                         shortcutRow("1", L10n.switchToPen)
                         shortcutRow("2", L10n.switchToEraser)
                         shortcutRow("⌫ Delete", L10n.clearCanvas)
+                        shortcutRow("⌘Z", L10n.undoStroke)
                         shortcutRow("Esc", L10n.hideDraft)
                         shortcutRow(L10n.tapTrackpad, L10n.toggleMouse)
                         shortcutRow(L10n.twoFingerScroll, L10n.panCanvas)

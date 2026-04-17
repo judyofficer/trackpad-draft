@@ -56,6 +56,7 @@ struct L10n {
     static var toggleMouse: String { current == .zh ? "显示 / 隐藏鼠标" : "Show / Hide Cursor" }
     static var panCanvas: String { current == .zh ? "平移画布" : "Pan Canvas" }
     static var moveWindow: String { current == .zh ? "移动窗口" : "Move Window" }
+    static var undoStroke: String { current == .zh ? "撤回上一笔" : "Undo Last Stroke" }
     static var tapTrackpad: String { current == .zh ? "单击触摸板" : "Tap Trackpad" }
     static var twoFingerScroll: String { current == .zh ? "双指滑动" : "Two-finger Scroll" }
     static var holdDrag: String { current == .zh ? "按住拖动" : "Hold & Drag" }

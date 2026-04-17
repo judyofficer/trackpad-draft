@@ -28,6 +28,9 @@ class CanvasEngine: ObservableObject {
     @Published var penLineWidth: CGFloat = 2.0
     @Published var eraserRadius: CGFloat = 10.0
     
+    // Undo history: each element is a snapshot of `strokes` before a change
+    private var undoStack: [[Stroke]] = []
+    
     // Convert absolute trackpad coords to window coords
     // trackpad size roughly 14x8 cm, let's assume normalized 0...1 relative input
     
@@ -35,6 +38,8 @@ class CanvasEngine: ObservableObject {
     
     func beginStroke(at point: CGPoint) {
         if currentMode == .eraser {
+            // Save snapshot before erasing begins
+            undoStack.append(strokes)
             eraseStrokes(at: point)
         } else {
             currentStroke = Stroke(points: [point])
@@ -62,6 +67,8 @@ class CanvasEngine: ObservableObject {
     
     func endStroke() {
         if let stroke = currentStroke {
+            // Save snapshot before committing a new stroke
+            undoStack.append(strokes)
             strokes.append(stroke)
         }
         currentStroke = nil
@@ -72,8 +79,20 @@ class CanvasEngine: ObservableObject {
     }
     
     func clearAll() {
+        guard !strokes.isEmpty else { return }
+        undoStack.append(strokes)
         strokes.removeAll()
     }
+    
+    // MARK: - Undo
+    
+    func undo() {
+        guard let previous = undoStack.popLast() else { return }
+        currentStroke = nil
+        strokes = previous
+    }
+    
+    var canUndo: Bool { !undoStack.isEmpty }
     
     func toggleMouseVisibility(in window: NSWindow?) {
         isMouseVisible.toggle()

@@ -127,6 +127,25 @@ struct DraftView: View {
                         
                         Divider().frame(width: 14)
                         
+                        // Undo button
+                        Button(action: { engine.undo() }) {
+                            VStack(spacing: 3) {
+                                Image(systemName: "arrow.uturn.backward")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(engine.canUndo ? .primary : .primary.opacity(0.3))
+                                Text("⌘Z")
+                                    .font(.system(size: 7, weight: .bold, design: .rounded))
+                                    .foregroundColor(engine.canUndo ? .primary.opacity(0.7) : .primary.opacity(0.2))
+                                    .frame(width: 18, height: 13)
+                                    .background(Capsule().fill(engine.canUndo ? Color.primary.opacity(0.1) : Color.clear))
+                            }
+                            .frame(width: 38, height: 38)
+                            .contentShape(Rectangle())
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        .keyboardShortcut("z", modifiers: .command)
+                        .disabled(!engine.canUndo)
+                        
                         Button(action: {
                             engine.clearAll()
                             engine.offset = .zero
@@ -171,7 +190,13 @@ struct DraftView: View {
         }
         .onAppear {
             keyMonitor = NSEvent.addLocalMonitorForEvents(matching: [.keyDown]) { event in
-                if !event.modifierFlags.contains(.command) {
+                if event.modifierFlags.contains(.command) {
+                    // Cmd+Z: undo
+                    if event.keyCode == 6 { // Z key
+                        engine.undo()
+                        return nil
+                    }
+                } else {
                     switch event.keyCode {
                     case 18: // 1
                         engine.currentMode = .pen
