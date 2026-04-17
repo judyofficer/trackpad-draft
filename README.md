@@ -153,4 +153,4 @@ Right-click the status bar icon → **Preferences**:
 
 ## 📄 License
 
-[MIT License](LICENSE) © 2025 TrackpadDraft
+[MIT License](LICENSE) © 2026 TrackpadDraft
