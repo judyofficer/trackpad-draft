@@ -37,9 +37,9 @@
 
 > *Floating scratchpad window & Settings panel*
 
-<img width="500" height="752" alt="image" src="https://github.com/user-attachments/assets/d7841e7c-6dbf-4451-a8d7-72c216338b92" />
-
-<img width="500" height="932" alt="image" src="https://github.com/user-attachments/assets/a6092658-5c59-4f4f-9a3e-ac05c0cb0d9a" />
+<img width="500" height="auto" alt="image" src="https://github.com/user-attachments/assets/d7841e7c-6dbf-4451-a8d7-72c216338b92" />
+<br>
+<img width="500" height="auto" alt="image" src="https://github.com/user-attachments/assets/a6092658-5c59-4f4f-9a3e-ac05c0cb0d9a" />
 
 
 ### 🚀 Installation
@@ -105,8 +105,9 @@ Right-click the status bar icon → **Preferences**:
 
 > *浮动草稿纸窗口 & 设置界面*
 
-<img width="500" height="752" alt="image" src="https://github.com/user-attachments/assets/d7841e7c-6dbf-4451-a8d7-72c216338b92" />
-<img width="500" height="932" alt="image" src="https://github.com/user-attachments/assets/1ca78212-efb0-49ac-92f0-16c9d34901db" />
+<img width="500" height="auto" alt="image" src="https://github.com/user-attachments/assets/d7841e7c-6dbf-4451-a8d7-72c216338b92" />
+<br>
+<img width="500" height="auto" alt="image" src="https://github.com/user-attachments/assets/1ca78212-efb0-49ac-92f0-16c9d34901db" />
 
 
 ### 🚀 安装
